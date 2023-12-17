@@ -14,5 +14,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "aircare-sdk-android"
-include(":app")
 include(":aircare-sdk")
