@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">aircare-sdk-android</string>
+    <string name="title_activity_permissions_rationale">PermissionsRationaleActivity</string>
+    <string name="title_activity_step">StepActivity</string>
+</resources>
