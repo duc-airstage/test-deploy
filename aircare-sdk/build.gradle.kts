@@ -1,8 +1,8 @@
-import org.jetbrains.kotlin.fir.declarations.builder.buildScript
 
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
 
 android {
@@ -33,6 +33,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+
+
 }
 
 dependencies {
@@ -47,3 +55,4 @@ dependencies {
     implementation ("androidx.health.connect:connect-client:1.1.0-alpha06")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
 }
+
