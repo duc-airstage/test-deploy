@@ -5,6 +5,7 @@ plugins {
     id("maven-publish")
 }
 
+
 android {
     namespace = "com.example.aircare_sdk"
     compileSdk = 33
@@ -34,11 +35,16 @@ android {
         jvmTarget = "1.8"
     }
 
+
     publishing {
         singleVariant("release") {
             withSourcesJar()
+            withJavadocJar()
         }
     }
+
+
+
 
 
 }
@@ -51,9 +57,25 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
     implementation ("androidx.health.connect:connect-client:1.1.0-alpha06")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
 }
+
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.duc-airstage"
+            artifactId = "test-deploy"
+            version = "0.0.1"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
+
+
 
 
